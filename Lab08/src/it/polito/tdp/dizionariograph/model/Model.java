@@ -27,6 +27,8 @@ public class Model {
 
 	public void createGraph(int numeroLettere) {
 		
+		if(this.grafo ==null)
+			this.grafo = new SimpleGraph<String, DefaultEdge>(DefaultEdge.class);
 		this.parole = this.wordDAO.getAllWordsFixedLength(numeroLettere);
 		
 		Graphs.addAllVertices(this.grafo, this.parole);
@@ -98,6 +100,10 @@ public class Model {
 
 	public void setMaxDegree(int maxDegree) {
 		this.maxDegree = maxDegree;
+	}
+
+	public void setGrafo(Graph graph) {
+		this.grafo = graph;	
 	}
 	
 	
